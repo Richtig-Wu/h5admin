@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>lianxi1</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div id="f">
+      <script type="text/babel">
+        var Input = React.createClass({
+          getInitialState:function(){
+            return{value :'' ,pwd :false,display:'1'};
+          },
+          handleChange(event){
+            this.setState({value : event.target.value});
+          },
+          handlePwd(event){
+            if(this.state.value === event.target.value){
+              this.setState({display:event.target.value,pwd:true});
+            }else {
+              this.setState({display:event.target.value,pwd:false});
+            }
+          },
+          render :function() {
+            var value = this.state.value;
+            var display = this.state.pwd ?  <b className="glyphicon glyphicon-ok"></b>:2;
+            return (
+              <div>
+              <input type="text"  onChange = {this.handleChange}/><br/><br/>
+              <input type="text"  onchange = {this.handlePwd}/>
+              {display}
+              </div>
+            );
+          }
+        });
+
+        ReactDOM.render(
+          <Input />,document.querySelector('#f')
+        );
+      </script>
+    </div>
+  </body>
+</html>

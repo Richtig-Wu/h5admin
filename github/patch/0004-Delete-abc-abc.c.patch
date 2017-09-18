@@ -1,0 +1,13 @@
+From 8a04785dd84ac5de4533cd2d3bbfebe7aa4181f6 Mon Sep 17 00:00:00 2001
+From: Richard Wang <wangleihd@gmail.com>
+Date: Mon, 28 Aug 2017 20:36:37 +0800
+Subject: [PATCH 4/5] Delete abc/abc.c
+
+Delete abc/abc.c
+
+diff --git a/abc/abc.c b/abc/abc.c
+deleted file mode 100644
+index e69de29..0000000
+-- 
+2.7.4
+

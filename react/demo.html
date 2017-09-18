@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>children</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+     <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+
+  </head>
+  <body>
+    <div id="example">
+      <script type="text/babel">
+        var HMessage = React.createClass({
+          getDefaultProps(){
+            return{
+              name:'Ben'
+            };
+          },
+          render :function(){
+            return <div>
+              <h1>
+              Hello {this.props.name } age: {this.props.age}
+              </h1>
+              {React.Children.map(this.props.children , (child)=>{
+                return <div>{child}</div>
+              })}
+            </div>
+          }
+        });
+
+        ReactDOM.render(
+          <HMessage  age = "25">
+          <b>hello world</b>
+          <i>are you ok</i>
+          </HMessage>,
+          document.getElementById('example'));
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>input</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="example">
+      <script type="text/babel">
+      var Input = React.createClass({
+        getInitialState:function(){
+          return {value : '',passwd:false,display:''};
+        },
+        handleChange(event){
+          this.setState ({ value : event.target.value});
+        },
+        handlePasswd(event){
+          if(this.state.value === event.target.value){
+            this.setState({display:event.target.value,passwd:true});
+          }else {
+            this.setState({display:event.target.value,passwd:false});
+          }
+        },
+        render : function(){
+          var value = this.state.value;
+
+          var display =this.state.passwd ? <b className="glyphicon glyphicon-ok"></b> :null;
+
+          // if(value === passwd && value){
+          //   display = <b>输入相同</b>;
+          // }else {
+          //   display = <b>输入不相同</b>;
+          // }
+          return (
+            <div>
+              <input type="text" value= {value}
+              onChange = {this.handleChange}/>
+              <br/><br/>
+
+              <input type="text"
+              onChange = {this.handlePasswd} />
+              {display}
+              </div>
+          );
+        }
+      });
+      ReactDOM.render(
+        <Input />, document.getElementById('example'));
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <% include head %>
+    <style media="screen">
+
+
+    </style>
+
+    <body>
+
+      <h1><%= title %></h1>
+      <p>Welcome to
+        <%= title %>
+      </p>
+      <ul>
+        <% include navbar %>
+      </ul>
+      <ul>
+        <% info.forEach(function(e){ %>
+          <%- include('list', {e: e}) %>
+            <% }); %>
+      </ul>
+      <form action="/login" method="post">
+        <input type="text" name="name" value="">
+        <input type="text" name="password" value="">
+        <button type="submit">submit</button>
+
+      </form>
+      <form class="aaa" action="/login">
+        <input type="text" name="name" value="">
+        <button type="submit" name="btn">submit</button>
+      </form>
+
+
+    </body>
+
+
+
+</html>

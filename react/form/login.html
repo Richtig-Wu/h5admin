@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>input</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <style media="screen">
+    #example{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+    }
+    input{
+
+      padding-left: 5px;
+      margin-left: 25px;
+    }
+  </style>
+  <body>
+    <div id="example">
+      <script type="text/babel">
+      var Input = React.createClass({
+        getInitialState:function(){
+          return {value : '',passwd:''};
+        },
+        handleChange : function(event){
+          this.setState ({ value : event.target.value});
+        },
+        handlePasswd: function(event){
+          this.setState({ passwd : event.target.value});
+        },
+        render : function(){
+          var value = this.state.value;
+          var passwd = this.state.passwd;
+          var display ='';
+          var b = '';
+
+            if(value === passwd && value){
+              b = <b className="glyphicon glyphicon-ok"></b>;
+              display = <b>正在登录中,请稍后...</b>;
+            }else if (value !== passwd && value && passwd) {
+              display = <b>帐号或密码错误</b>
+            }else {
+              display = <b>请输入</b>;
+            }
+
+
+          return (
+            <div>
+               帐号 :<input type="text" value= {value}
+              onChange = {this.handleChange}/>{b}
+                <br/><br/>
+               密码 :<input type="text" value={passwd}
+              onChange = {this.handlePasswd} />{b}
+            <br/><br/>
+              {display}
+              </div>
+          );
+        }
+      });
+      ReactDOM.render(
+        <Input />, document.getElementById('example'));
+      </script>
+    </div>
+  </body>
+</html>

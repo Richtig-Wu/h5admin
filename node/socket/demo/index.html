@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>socket.io的应用</title>
+    <script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on('news', function(data) {
+        console.log("socket.on");
+        console.log(data);
+        socket.emit('other', {
+          my: 'data'
+        });
+      });
+
+    </script>
+  </head>
+
+  <body>
+    <h1>请看控制台</h1>
+  </body>
+
+</html>

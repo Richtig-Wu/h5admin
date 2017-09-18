@@ -1,0 +1,13 @@
+From 9b022980a2397f4e92e9b46d5a97322270ccfe9a Mon Sep 17 00:00:00 2001
+From: Richard Wang <wangleihd@gmail.com>
+Date: Mon, 28 Aug 2017 16:38:45 +0800
+Subject: [PATCH 2/5] add new file hello.c
+
+add new file hello.c
+
+diff --git a/hello.c b/hello.c
+new file mode 100644
+index 0000000..e69de29
+-- 
+2.7.4
+

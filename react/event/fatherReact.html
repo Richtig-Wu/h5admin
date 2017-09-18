@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>父组件</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+
+
+  </head>
+  <body>
+  <div id="example">
+
+    <script type="text/babel">
+        var Content = React.createClass({
+          render: function(){
+            return <div>
+              <button onClick={this.props.updateStateProp}>按钮</button>
+              <h4>{this.props.myDataProp}</h4>
+            </div>
+          }
+        });
+        var HelloMessage = React.createClass({
+          getInitialState : function(){
+            return {value : 'Hello HTML5!'};
+          },
+          handleChange : function (event){
+            this.setState({value:'菜鸟在线'})
+          },
+          render : function(){
+            var value = this.state.value;
+            return <div>
+            {<Content myDataProp = {value}
+              updateStateProp = {this.handleChange}>
+            </Content>}
+            </div>;
+          }
+        });
+        ReactDOM.render(
+          <HelloMessage />,
+          document.getElementById('example')
+        );
+    </script>
+  </div>
+  </body>
+</html>

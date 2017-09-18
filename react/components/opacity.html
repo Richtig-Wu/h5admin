@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>变换透明渡</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+  </head>
+  <style media="screen">
+    *{
+      font-size: 150px;
+      text-align: center;
+      margin-top: 180px;
+    }
+  </style>
+  <body>
+    <div id="example">
+     <script type="text/babel">
+       var Hello = React.createClass({
+          getInitialState: function(){
+              return {
+                opacity:1.0,
+                a:1
+              }
+          },
+
+          componentDidMount :function(){
+            this.time = setInterval(function(){
+              var opacity = this.state.opacity;
+              var a = this.state.a;
+              if(opacity <= 0.1){
+                  a=1;
+              }
+              if (opacity >= 1) {
+                  a=0;
+              }
+              if( a == 1){
+                opacity +=0.1;
+              }else{
+                opacity -=0.1;
+              }
+              this.setState({
+                a:a,
+                opacity :opacity
+              });
+            }.bind(this),200);
+          },
+         render : function(){
+           return (
+             <div style={{opacity:this.state.opacity}}>
+               <h1>Hello {this.props.name}</h1>
+             </div>
+
+           )
+         }
+       });
+       ReactDOM.render(
+         <Hello name="world" />,
+         document.getElementById('example')
+     );
+     </script>
+     </div>
+  </body>
+</html>

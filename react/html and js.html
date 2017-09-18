@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>html和js混用</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+     <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+
+  </head>
+  <body>
+    <div id="example">
+      <script type="text/babel">
+         var names = ['伍成桂','钟方威','陈光宇','钟颖','赖志成','曾裕发','周文杰','吴权忠'];
+
+         ReactDOM.render(
+           <div>
+            {names.map(function(name){
+              return <h1>How are {name} feel!</h1>
+            })}
+           </div>,
+           document.getElementById('example'));
+      </script>
+    </div>
+  </body>
+</html>

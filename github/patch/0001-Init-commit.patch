@@ -1,0 +1,30 @@
+From 285a2be0b2f36f50e1d60a472ec71904e7705a20 Mon Sep 17 00:00:00 2001
+From: Richard Wang <wangleihd@gmail.com>
+Date: Mon, 28 Aug 2017 16:28:20 +0800
+Subject: [PATCH 1/5] Init commit.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Init commit.
+ 要提交的变更：
+	新文件：   README.md
+	新文件：   abc/abc.c
+	新文件：   index.html
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..79f5328
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++# this is a doc.
+diff --git a/abc/abc.c b/abc/abc.c
+new file mode 100644
+index 0000000..e69de29
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..e69de29
+-- 
+2.7.4
+

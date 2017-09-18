@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ajax请求url</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>  </head>
+  <body>
+    <script type="text/babel">
+      var User = React.createClass({
+        getInitialState: function(){
+          return {
+            username : '',
+            lasturl : ''
+          };
+        },
+
+
+      componentWillMount : function(){
+
+          $.get(this.props.source , function(result){
+            var lasturl = result[0];
+              this.setState({
+                username: lasturl.owner.login,
+                lasturl : lasturl.html_url
+              });
+          }.bind(this));
+      },
+      // componentDidMount : function(){
+      //   $.get(this.props.source , function(result){
+      //     var lasturl = result[0];
+      //       this.setState({
+      //         username: lasturl.owner.login,
+      //         lasturl : lasturl.html_url
+      //       });
+      //   }.bind(this));
+      // },
+        render :function(){
+          return (
+          <div>
+          name: <h1>{this.state.username}</h1> <br/>
+          <a href={this.state.lasturl}>url</a>
+          </div>
+          );
+        }
+      });
+      ReactDOM.render(
+        <User source="https://api.github.com/users/octocat/gists" />,
+        document.body
+      );
+    </script>
+
+  </body>
+</html>

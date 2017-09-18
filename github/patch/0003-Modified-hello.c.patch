@@ -1,0 +1,21 @@
+From 6859690f0bc9b1f26bef0cbfbf4f8177eb2a4dc8 Mon Sep 17 00:00:00 2001
+From: Richard Wang <wangleihd@gmail.com>
+Date: Mon, 28 Aug 2017 16:40:47 +0800
+Subject: [PATCH 3/5] Modified hello.c
+
+Modified hello.c
+
+diff --git a/hello.c b/hello.c
+index e69de29..782a236 100644
+--- a/hello.c
++++ b/hello.c
+@@ -0,0 +1,6 @@
++#include <stdio.h>
++
++int main(void){
++    printf("hello world\n");
++    return 0;
++}
+-- 
+2.7.4
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>父组件单击事件</title>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+<script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+<script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+<link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<style media="screen">
+    #example{
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+    }
+    #d1{
+      width: 420px;
+      text-align: center;
+      line-height: 200px;
+      font-size: 24px;
+      background: #fff;
+    }
+
+    div:nth-child(1){
+      width: 200px;
+      height: 200px;
+      background:#a1a2a6;
+      float: left;
+    }
+    div:nth-child(2){
+      width: 200px;
+      height: 200px;
+        background:red;
+        float: right;
+        }
+    .h4{
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      border: 1px solid #000;
+      margin: 0 auto;
+      margin-top: 210px;
+      text-align: center;
+      font-size: 24px;
+    }
+</style>
+  </head>
+  <body>
+     <div id="example">
+     <script type="text/babel">
+
+     var a= 0;
+     var Content = React.createClass({
+       render: function(){
+         return <div id="d1">
+           <div onClick={this.props.updateStateProp}>单击</div>
+           <div onDoubleClick={this.props.db}>双击</div>
+           <h4 className="h4">{this.props.myDataProp}</h4>
+         </div>
+       }
+     });
+     var HelloMessage = React.createClass({
+       getInitialState : function(){
+         return {value : '0'};
+       },
+       handleChange : function (event){
+
+         this.setState({value:a+=1})
+       },
+       handledb:function(){
+         this.setState({value:a+=2})
+       },
+       render : function(){
+         var value = this.state.value;
+         return <div>
+         {<Content myDataProp = {value}
+           updateStateProp = {this.handleChange}
+           db={this.handledb}>
+         </Content>}
+         </div>;
+       }
+     });
+     ReactDOM.render(
+       <HelloMessage />,
+       document.getElementById('example')
+     );
+     </script>
+   </div>
+  </body>
+</html>
